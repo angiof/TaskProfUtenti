@@ -73,9 +73,9 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
             return true;
         });*/
         u.awesomeDialogEdit(holder.edit, context);
-
         u.awesomeDialogDelete(holder.delete, context);
-
+        /*delete(position, holder);
+        edit(position, holder);*/
 
     }
 
@@ -101,4 +101,17 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
 
         }
     }
+
+/*    public boolean delete(int position, MyViewHolder holder,List<User> users,My_adapter adapter) {
+        u.awesomeDialogDelete(holder.delete, context);
+        UserDatabase.getInstance(context).userDAO().delete(users.get(position));
+        users.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, users.size());
+        return true;
+    }
+
+    public void edit(int position, MyViewHolder holder) {
+        u.awesomeDialogEdit(holder.edit, context);
+    }*/
 }

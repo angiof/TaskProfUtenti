@@ -19,7 +19,7 @@ import java.util.List;
 public class RecyclerActivity extends AppCompatActivity {
     ActivityRecyclerBinding binding;
     private static List<User> lista = new LinkedList<>();
-
+    My_adapter my_adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,15 @@ public class RecyclerActivity extends AppCompatActivity {
 
     void dbRecived() {
 
-       lista=UserDatabase.getInstance(getApplicationContext()).userDAO().getAll();
+        lista = UserDatabase.getInstance(getApplicationContext()).userDAO().getAll();
     }
 
 
     private void adapterRecyc() {
-        My_adapter my_adapter = new My_adapter(this, lista);
+        my_adapter = new My_adapter(this, lista);
         binding.recyclerview.setAdapter(my_adapter);
         binding.recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
 
