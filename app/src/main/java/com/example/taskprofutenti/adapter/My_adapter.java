@@ -30,6 +30,7 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
     List<User> users;
     Context context;
 
+
     public My_adapter(Context ct, List<User> u) {
         context = ct;
         users = u;
@@ -49,15 +50,13 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
         holder.nome.setText(users.get(position).getName());
         holder.cognome.setText(users.get(position).getLastName());
         holder.eta.setText(users.get(position).getAge());
-        holder.itemView.setOnLongClickListener(view -> {
+       /* holder.itemView.setOnLongClickListener(view -> {
             PopupMenu popup = new PopupMenu(context, view);
             popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.modify:
-/*
-                        u.awesomeDialog(,context);
-*/
+                        u.awesomeDialog(holder.itemView,context);
                         break;
 
                     case R.id.delete:
@@ -72,11 +71,12 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
             });
             popup.show();
             return true;
-        });
-        holder.edit.setOnClickListener(view->{
-            u.awesomeDialog((Button) ,context);
+        });*/
+        u.awesomeDialogEdit(holder.edit, context);
 
-        });
+        u.awesomeDialogDelete(holder.delete, context);
+
+
     }
 
     @Override
@@ -88,14 +88,16 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
 
         MyRowBinding binding;
         TextView nome, cognome, eta;
-        ImageButton edit;
+        ImageButton edit, delete;
+
         public MyViewHolder(@NonNull MyRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
             nome = binding.nome;
             cognome = binding.cognome;
             eta = binding.eta;
-            edit= binding.edit;
+            edit = binding.edit;
+            delete = binding.delete;
 
         }
     }
