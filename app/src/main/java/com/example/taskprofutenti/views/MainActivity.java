@@ -26,14 +26,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         buttonInserts();
 
     }
+
+
 
     private void buttonInserts() {
         binding.insert.setOnClickListener(v -> {
             User u = new User(binding.name.getText().toString(),binding.cognome.getText().toString(),binding.eta.getText().toString());
             UserDatabase.getInstance(getApplicationContext()).userDAO().insertAll(u);
+            binding.name.setText("");
+            binding.cognome.setText("");
+            binding.eta.setText("");
             startActivity(new Intent(this,RecyclerActivity.class));
 
         });

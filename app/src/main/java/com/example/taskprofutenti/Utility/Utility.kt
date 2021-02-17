@@ -12,9 +12,9 @@ import com.example.taskprofutenti.adapter.My_adapter
 import com.example.taskprofutenti.views.RecyclerActivity
 
 class Utility {
-    val title = "Vuoi eliminare questa persona?"
-    val body = "Your New Account has been created"
-    val si = "Si"
+    val title = "Fatto"
+    val body = "Questa persona è stata eliminata con successo"
+    val si = "Ritorna alla lista"
     val no = "No"
     val cancel = "Cancel"
 
@@ -46,26 +46,23 @@ class Utility {
 
     }
 
-    fun awesomeDialogDelete(view: View, c: Context) {
+    fun awesomeDialogDelete( c: Context) {
 
-
-        view.setOnClickListener {
-
-            AwesomeDialog.build(c as Activity)
+        AwesomeDialog.build(c as Activity)
                     .title(
                             title,
                             titleColor = ContextCompat.getColor(c, android.R.color.white)
                     )
-                    /* .body(
+                     .body(
                              body,
                              color = ContextCompat.getColor(c, android.R.color.white)
-                     )*/
+                     )
                     .icon(R.drawable.ic_congrts)
-                    .background(R.drawable.layout_rounded_white/*layout_rounded_green*/)
+                    .background(R.drawable.layout_rounded_green)
                     .position(AwesomeDialog.POSITIONS.CENTER)
                     .onPositive(
                             si,
-                            buttonBackgroundColor = R.drawable.ic_launcher_background/*layout_rounded_dark_white*/,
+                            buttonBackgroundColor = R.drawable.layout_rounded_dark_white,
                             textColor = ContextCompat.getColor(c, android.R.color.black)
 
                     ) {
@@ -79,4 +76,3 @@ class Utility {
 
 
 
-}

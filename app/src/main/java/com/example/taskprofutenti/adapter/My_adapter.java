@@ -50,13 +50,13 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
         holder.nome.setText(users.get(position).getName());
         holder.cognome.setText(users.get(position).getLastName());
         holder.eta.setText(users.get(position).getAge());
-       /* holder.itemView.setOnLongClickListener(view -> {
+        holder.itemView.setOnLongClickListener(view -> {
             PopupMenu popup = new PopupMenu(context, view);
             popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.modify:
-                        u.awesomeDialog(holder.itemView,context);
+
                         break;
 
                     case R.id.delete:
@@ -64,18 +64,16 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
                         users.remove(position);
                         notifyItemRemoved(position);
                         notifyItemRangeChanged(position, users.size());
-
+                         u.awesomeDialogDelete(context);
                         break;
                 }
                 return true;
             });
             popup.show();
             return true;
-        });*/
-        u.awesomeDialogEdit(holder.edit, context);
-        u.awesomeDialogDelete(holder.delete, context);
-        /*delete(position, holder);
-        edit(position, holder);*/
+        });
+
+
 
     }
 
@@ -88,7 +86,7 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
 
         MyRowBinding binding;
         TextView nome, cognome, eta;
-        ImageButton edit, delete;
+
 
         public MyViewHolder(@NonNull MyRowBinding binding) {
             super(binding.getRoot());
@@ -96,22 +94,10 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
             nome = binding.nome;
             cognome = binding.cognome;
             eta = binding.eta;
-            edit = binding.edit;
-            delete = binding.delete;
+
 
         }
     }
 
-/*    public boolean delete(int position, MyViewHolder holder,List<User> users,My_adapter adapter) {
-        u.awesomeDialogDelete(holder.delete, context);
-        UserDatabase.getInstance(context).userDAO().delete(users.get(position));
-        users.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, users.size());
-        return true;
-    }
 
-    public void edit(int position, MyViewHolder holder) {
-        u.awesomeDialogEdit(holder.edit, context);
-    }*/
 }
