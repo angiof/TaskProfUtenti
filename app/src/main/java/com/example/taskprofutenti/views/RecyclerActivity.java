@@ -19,10 +19,12 @@ import com.example.taskprofutenti.databinding.ActivityRecyclerBinding;
 import com.example.taskprofutenti.db.User;
 import com.example.taskprofutenti.db.UserDatabase;
 
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.refactor.lib.colordialog.PromptDialog;
 
 
 public class RecyclerActivity extends AppCompatActivity {
@@ -67,10 +69,37 @@ public class RecyclerActivity extends AppCompatActivity {
                     .withFirstButtonListner(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                         /*   new SweetAlertDialog(RecyclerActivity.this)
-                                    .setTitleText("Here's a message!")
-                                    .show();*/
-                            /*flatDialog.getFirstTextField();*/
+
+                          User u=UserDatabase.getInstance(getApplicationContext()).userDAO().get(flatDialog.getFirstTextField());
+                            flatDialog.dismiss();
+                          try {
+                            new PromptDialog(RecyclerActivity.this)
+                                    .setDialogType(PromptDialog.DIALOG_TYPE_SUCCESS)
+                                    .setAnimationEnable(true)
+                                    .setTitleText("Trovato")
+                                    .setContentText(u.getEmail()+"\n"+u.getPassword())
+                                    .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                                        @Override
+                                        public void onClick(PromptDialog dialog) {
+                                            dialog.dismiss();
+                                        }
+                                    }).show();
+                          }catch (Exception e){
+                              new PromptDialog(RecyclerActivity.this)
+                                      .setDialogType(PromptDialog.DIALOG_TYPE_HELP)
+                                      .setAnimationEnable(true)
+                                      .setTitleText("Ops...")
+                                      .setContentText("L'utente non è stato trovato")
+                                      .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                                          @Override
+                                          public void onClick(PromptDialog dialog) {
+                                              dialog.dismiss();
+                                          }
+                                      }).show();
+
+
+                          }
+
                         }
                     })
                     .withSecondButtonListner(new View.OnClickListener() {
