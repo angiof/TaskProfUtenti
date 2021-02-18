@@ -2,6 +2,7 @@ package com.example.taskprofutenti.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,10 +60,20 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
                     case R.id.modify:
                         final FlatDialog flatDialog = new FlatDialog(context);
                         flatDialog.setTitle("Modifica")
-                                .setFirstTextFieldHint("email")
-                                .setSecondTextFieldHint("password")
+                                .setTitleColor(Color.parseColor("#078fc9"))
+                                .setBackgroundColor(Color.parseColor("#f2f2f2"))
+                                .setFirstTextFieldHint(users.get(position).getEmail())
+                                .setFirstTextFieldHintColor(Color.parseColor("#078fc9"))
+                                .setFirstTextFieldTextColor(Color.parseColor("#078fc9"))
+                                .setFirstTextFieldBorderColor(Color.parseColor("#078fc9"))
+                                .setSecondTextFieldHint(users.get(position).getPassword())
+                                .setSecondTextFieldHintColor(Color.parseColor("#078fc9"))
+                                .setSecondTextFieldTextColor(Color.parseColor("#078fc9"))
+                                .setSecondTextFieldBorderColor(Color.parseColor("#078fc9"))
                                 .setFirstButtonText("modifica")
+                                .setFirstButtonColor(Color.parseColor("#078fc9"))
                                 .setSecondButtonText("esci")
+                                .setSecondButtonColor(Color.parseColor("#078fc9"))
                                 .withFirstButtonListner(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -110,6 +121,7 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
 
         MyRowBinding binding;
         TextView email, password;
+
 
 
         public MyViewHolder(@NonNull MyRowBinding binding) {

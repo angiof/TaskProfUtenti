@@ -21,6 +21,9 @@ public interface UserDAO {
     @Query("UPDATE user SET Email=:email,Password=:password WHERE ID=:id")
     void updateUser(String email, String password, int id);
 
+    @Query("SELECT * FROM user WHERE Email=:email")
+    User get(String email);
+
     @Delete
     void delete(User u);
 

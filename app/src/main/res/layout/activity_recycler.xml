@@ -16,5 +16,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="65dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/ricerca"
+            android:layout_width="44dp"
+            android:layout_height="35dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="TODO"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_search_24"
+            tools:ignore="VectorDrawableCompat" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.example.flatdialoglibrary.dialog.FlatDialog;
+import com.example.taskprofutenti.R;
 import com.example.taskprofutenti.adapter.My_adapter;
 import com.example.taskprofutenti.databinding.ActivityRecyclerBinding;
 import com.example.taskprofutenti.db.User;
@@ -15,6 +22,8 @@ import com.example.taskprofutenti.db.UserDatabase;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+
 
 public class RecyclerActivity extends AppCompatActivity {
     ActivityRecyclerBinding binding;
@@ -27,10 +36,51 @@ public class RecyclerActivity extends AppCompatActivity {
         binding = ActivityRecyclerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        WindowManager.LayoutParams attrs = getWindow().getAttributes();
+        attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        getWindow().setAttributes(attrs);
+        getSupportActionBar().hide();
+
+
         dbRecived();
         adapterRecyc();
+        buttonRicerca();
 
+    }
 
+    private void buttonRicerca() {
+        final FlatDialog flatDialog= new FlatDialog(this);
+        binding.ricerca.setOnClickListener(v -> {
+
+            flatDialog
+                    .setTitle("Ricerca!")
+                    .setTitleColor(Color.parseColor("#078fc9"))
+                    .setBackgroundColor(Color.parseColor("#f2f2f2"))
+                    .setFirstTextFieldHint("email")
+                    .setFirstTextFieldHintColor(Color.parseColor("#078fc9"))
+                    .setFirstTextFieldTextColor(Color.parseColor("#078fc9"))
+                    .setFirstTextFieldBorderColor(Color.parseColor("#078fc9"))
+                    .setFirstButtonText("Inserisci")
+                    .setFirstButtonColor(Color.parseColor("#078fc9"))
+                    .setSecondButtonText("Esci")
+                    .setSecondButtonColor(Color.parseColor("#078fc9"))
+                    .withFirstButtonListner(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                         /*   new SweetAlertDialog(RecyclerActivity.this)
+                                    .setTitleText("Here's a message!")
+                                    .show();*/
+                            /*flatDialog.getFirstTextField();*/
+                        }
+                    })
+                    .withSecondButtonListner(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            flatDialog.dismiss();
+                        }
+                    })
+                    .show();
+        });
     }
 
 
