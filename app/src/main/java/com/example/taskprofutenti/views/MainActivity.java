@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.flatdialoglibrary.dialog.FlatDialog;
 import com.example.taskprofutenti.R;
+import com.example.taskprofutenti.Utility.Utility;
 import com.example.taskprofutenti.databinding.ActivityMainBinding;
 import com.example.taskprofutenti.db.User;
 import com.example.taskprofutenti.db.UserDatabase;
@@ -30,7 +31,7 @@ import cn.refactor.lib.colordialog.PromptDialog;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
+Utility u = new Utility();
 
 
     @Override
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 .setFirstButtonColor(Color.parseColor("#078fc9"))
                 .setSecondButtonText("Accedi")
                 .setSecondButtonColor(Color.parseColor("#078fc9"))
+                .setThirdButtonText("Info")
+                .setThirdButtonColor(Color.parseColor("#a86f05"))
                 .withFirstButtonListner(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -101,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         startActivity(new Intent(MainActivity.this,RecyclerActivity.class));
+                    }
+                })
+                .withThirdButtonListner(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                   u.awesomeDialogInfo(MainActivity.this);
                     }
                 })
                 .show();

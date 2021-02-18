@@ -18,34 +18,38 @@ class Utility {
     val no = "No"
     val cancel = "Cancel"
 
-    fun awesomeDialogEdit(view: View, c: Context) {
+    fun awesomeDialogInfo( c: Context) {
 
-  /* AwesomeDialog.build(c as Activity)
+ AwesomeDialog.build(c as Activity)
                     .title(
-                            title,
-                            titleColor = ContextCompat.getColor(c, android.R.color.white)
+                            "Info",
+                            titleColor = ContextCompat.getColor(c, android.R.color.black)
                     )
+
                      .body(
-                             "Questa persona è stata modificata con successo",
-                             color = ContextCompat.getColor(c, android.R.color.white)
+                             "Developed \nby\n Davide Saiano && Angelo Ferretti\n\nScritto \ncon\n java && Kotlin" +
+                                     "\n\nEmail: davidesaiano1@gmail.com\n" +
+                                     "Email: angiokop@gmail.com" +
+                                     "\nTelefono: 3336791477 && 3518507337",
+                             color = ContextCompat.getColor(c, android.R.color.black)
                      )
-                    .icon(R.drawable.ic_congrts)
-                    .background(R.drawable.layout_rounded_green)
+                    .icon(R.drawable.ic_baseline_info_24)
+                    .background(R.drawable.layout_rounded_white)
                     .position(AwesomeDialog.POSITIONS.CENTER)
                     .onPositive(
-                            si,
-                            buttonBackgroundColor = R.drawable.layout_rounded_dark_white,
-                            textColor = ContextCompat.getColor(c, android.R.color.black)
+                            "Thanks",
+                            buttonBackgroundColor = R.drawable.layout_rounded_dark_black,
+                            textColor = ContextCompat.getColor(c, android.R.color.white)
 
                     ) {
                         Log.d("TAG", "positive ")
                     }
 
-        }*/
+        }
 
 
 
-    }
+
 
     fun awesomeDialogDelete( c: Context) {
 
