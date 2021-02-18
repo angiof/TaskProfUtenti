@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.flatdialoglibrary.dialog.FlatDialog;
 import com.example.taskprofutenti.R;
@@ -21,6 +22,8 @@ import com.example.taskprofutenti.db.UserDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.refactor.lib.colordialog.PromptDialog;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitleColor(Color.parseColor("#078fc9"))*/
                 .setBackgroundColor(Color.parseColor("#f2f2f2"))
                 .setFirstTextFieldHint("email")
+
                 .setFirstTextFieldHintColor(Color.parseColor("#078fc9"))
                 .setFirstTextFieldTextColor(Color.parseColor("#078fc9"))
                 .setFirstTextFieldBorderColor(Color.parseColor("#078fc9"))
@@ -67,13 +71,26 @@ public class MainActivity extends AppCompatActivity {
                 .withFirstButtonListner(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        User u = new User(flatDialog.getFirstTextField(),flatDialog.getSecondTextField());
-                        UserDatabase.getInstance(getApplicationContext()).userDAO().insertAll(u);
+                        if(flatDialog.getFirstTextField().isEmpty()||flatDialog.getSecondTextField().isEmpty()){
+                            new PromptDialog(MainActivity.this)
+                                    .setDialogType(PromptDialog.DIALOG_TYPE_HELP)
+                                    .setAnimationEnable(true)
+                                    .setTitleText("Ops...")
+                                    .setContentText("Riempire tutti i campi")
+                                    .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                                        @Override
+                                        public void onClick(PromptDialog dialog) {
+                                            dialog.dismiss();
+                                        }
+                                    }).show();
+                        }else {
+                            User u = new User(flatDialog.getFirstTextField(), flatDialog.getSecondTextField());
+                            UserDatabase.getInstance(getApplicationContext()).userDAO().insertAll(u);
 
 
-                        startActivity(new Intent(MainActivity.this,RecyclerActivity.class));
+                            startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
+                        }
 
-                        /*users.set(position,)*/
                     }
                 })
                 .withSecondButtonListner(new View.OnClickListener() {

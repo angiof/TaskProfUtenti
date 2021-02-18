@@ -2,19 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="https://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
     android:layout_height="wrap_content"
    >
 
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        app:cardBackgroundColor="@color/azzurrino_pre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,32 +29,43 @@
             android:layout_height="match_parent">
 
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="95dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_persob_24" />
+
             <TextView
                 android:id="@+id/password1"
                 android:layout_width="wrap_content"
-                android:layout_height="29dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/cherry_cream_soda"
                 android:text="Password"
-                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textSize="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/email1"
-                android:layout_width="91dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="1dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/cherry_cream_soda"
                 android:text="Email"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toTopOf="@+id/password1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

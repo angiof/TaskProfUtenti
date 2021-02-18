@@ -54,6 +54,10 @@ dependencies {
     implementation 'com.github.mejdi14:Flat-Dialog-Android:1.0.5'
 
     implementation 'com.github.andyxialm:ColorDialog:1.0.0'
+
+    //lottie
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }
 repositories {
     mavenCentral()

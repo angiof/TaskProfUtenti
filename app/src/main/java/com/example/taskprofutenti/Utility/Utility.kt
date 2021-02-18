@@ -52,19 +52,19 @@ class Utility {
         AwesomeDialog.build(c as Activity)
                     .title(
                             title,
-                            titleColor = ContextCompat.getColor(c, android.R.color.white)
+                            titleColor = ContextCompat.getColor(c, android.R.color.black)
                     )
                      .body(
                              body,
-                             color = ContextCompat.getColor(c, android.R.color.white)
+                             color = ContextCompat.getColor(c, android.R.color.black)
                      )
                     .icon(R.drawable.ic_congrts)
-                    .background(R.drawable.layout_rounded_green)
+                    .background(R.drawable.layout_rounded_white)
                     .position(AwesomeDialog.POSITIONS.CENTER)
                     .onPositive(
                             si,
-                            buttonBackgroundColor = R.drawable.layout_rounded_dark_white,
-                            textColor = ContextCompat.getColor(c, android.R.color.black)
+                            buttonBackgroundColor = R.drawable.layout_rounded_dark_black,
+                            textColor = ContextCompat.getColor(c, android.R.color.white)
 
                     ) {
                         Log.d("TAG", "positive ")
