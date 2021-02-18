@@ -8,6 +8,8 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +22,7 @@ import com.example.taskprofutenti.databinding.ActivityMainBinding;
 import com.example.taskprofutenti.db.User;
 import com.example.taskprofutenti.db.UserDatabase;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 .setTitleColor(Color.parseColor("#078fc9"))*/
                 .setBackgroundColor(Color.parseColor("#f2f2f2"))
                 .setFirstTextFieldHint("email")
-
+                .setFirstTextFieldInputType(InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS)
                 .setFirstTextFieldHintColor(Color.parseColor("#078fc9"))
                 .setFirstTextFieldTextColor(Color.parseColor("#078fc9"))
                 .setFirstTextFieldBorderColor(Color.parseColor("#078fc9"))
                 .setSecondTextFieldHint("password")
+                .setSecondTextFieldInputType(InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD)
                 .setSecondTextFieldHintColor(Color.parseColor("#078fc9"))
                 .setSecondTextFieldTextColor(Color.parseColor("#078fc9"))
                 .setSecondTextFieldBorderColor(Color.parseColor("#078fc9"))
