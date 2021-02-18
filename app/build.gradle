@@ -49,6 +49,9 @@ dependencies {
 
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //dialogModify
+    implementation 'com.github.mejdi14:Flat-Dialog-Android:1.0.5'
 }
 repositories {
     mavenCentral()

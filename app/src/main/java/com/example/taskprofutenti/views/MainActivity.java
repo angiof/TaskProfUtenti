@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void buttonInserts() {
         binding.insert.setOnClickListener(v -> {
-            User u = new User(binding.name.getText().toString(),binding.cognome.getText().toString(),binding.eta.getText().toString());
+            User u = new User(binding.email.getText().toString(),binding.password.getText().toString());
             UserDatabase.getInstance(getApplicationContext()).userDAO().insertAll(u);
-            binding.name.setText("");
-            binding.cognome.setText("");
-            binding.eta.setText("");
+            binding.email.setText("");
+            binding.password.setText("");
+
             startActivity(new Intent(this,RecyclerActivity.class));
 
         });

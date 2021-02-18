@@ -18,8 +18,8 @@ public interface UserDAO {
     @Query("SELECT * FROM user")
     List<User> getAll();
 
-    @Query("UPDATE user SET First_name=:name,Last_name=:lastName,Age=:age WHERE First_name=:nomeR")
-    void updateUser(String name, String lastName, String age, String nomeR);
+    @Query("UPDATE user SET Email=:email,Password=:password WHERE ID=:id")
+    void updateUser(String email, String password, int id);
 
     @Delete
     void delete(User u);

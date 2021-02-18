@@ -10,32 +10,54 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private int ID;
 
-    @ColumnInfo(name = "First_name")
-    private String name;
+    @ColumnInfo(name = "Email")
+    private String email;
 
-    @ColumnInfo(name = "Last_name")
-    private String lastName;
+    @ColumnInfo(name = "Password")
+    private String password;
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
-    @ColumnInfo(name = "Age")
-    private String age;
+    public User() {
+    }
 
-    public User(String name, String lastName,String age) {
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+/*public User(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
-        this.age=age;
+
     }
     @Ignore
     public User() {
     }
 
-    public String getAge() {
-        return age;
-    }
 
-    public void setAge(String age) {
-        this.age = age;
-    }
 
     public String getName() {
         return name;
@@ -69,5 +91,5 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", age='" + age + '\'' +
                 '}';
-    }
+    }*/
 }

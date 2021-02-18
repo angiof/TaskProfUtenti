@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flatdialoglibrary.dialog.FlatDialog;
 import com.example.taskprofutenti.R;
 import com.example.taskprofutenti.Utility.Utility;
 import com.example.taskprofutenti.databinding.MyRowBinding;
@@ -47,16 +48,39 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        holder.nome.setText(users.get(position).getName());
-        holder.cognome.setText(users.get(position).getLastName());
-        holder.eta.setText(users.get(position).getAge());
+        holder.email.setText(users.get(position).getEmail());
+        holder.password.setText(users.get(position).getPassword());
+
         holder.itemView.setOnLongClickListener(view -> {
             PopupMenu popup = new PopupMenu(context, view);
             popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.modify:
-
+                        final FlatDialog flatDialog = new FlatDialog(context);
+                        flatDialog.setTitle("Modifica")
+                                .setFirstTextFieldHint("email")
+                                .setSecondTextFieldHint("password")
+                                .setFirstButtonText("modifica")
+                                .setSecondButtonText("esci")
+                                .withFirstButtonListner(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        User u = new User( flatDialog.getFirstTextField(),flatDialog.getSecondTextField());
+                                        UserDatabase.getInstance(context).userDAO().updateUser(flatDialog.getFirstTextField(),flatDialog.getSecondTextField(),users.get(position).getID());
+                                        users.set(position,u);
+                                        notifyItemChanged(position);
+                                        flatDialog.dismiss();
+                                        /*users.set(position,)*/
+                                    }
+                                })
+                                .withSecondButtonListner(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        flatDialog.dismiss();
+                                    }
+                                })
+                                .show();
                         break;
 
                     case R.id.delete:
@@ -85,15 +109,15 @@ public class My_adapter extends RecyclerView.Adapter<My_adapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         MyRowBinding binding;
-        TextView nome, cognome, eta;
+        TextView email, password;
 
 
         public MyViewHolder(@NonNull MyRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-            nome = binding.nome;
-            cognome = binding.cognome;
-            eta = binding.eta;
+            email = binding.email1;
+            password = binding.password1;
+
 
 
         }

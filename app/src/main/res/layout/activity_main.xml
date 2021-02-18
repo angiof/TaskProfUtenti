@@ -7,38 +7,27 @@
     tools:context=".views.MainActivity">
 
     <TextView
-        android:id="@+id/textEta"
+        android:id="@+id/textEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Età:"
+        android:text="Email:"
         android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/eta"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Nome:"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/cognome"
+        android:id="@+id/password"
         android:layout_width="376dp"
         android:layout_height="70dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="70dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/email"
         android:layout_width="376dp"
 
         android:layout_height="70dp"
@@ -47,27 +36,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/eta"
-        android:layout_width="376dp"
-        android:inputType="number"
-        android:layout_height="70dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="70dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cognome" />
-
     <Button
         android:id="@+id/insert"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginRight="156dp"
+        android:layout_marginBottom="260dp"
         android:text="Insert"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eta" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textPassword"
@@ -75,9 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="Cognome:"
+        android:text="Password:"
         android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/cognome"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -88,7 +66,7 @@
         android:layout_marginLeft="165dp"
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="164dp"
         android:text="Accedi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
